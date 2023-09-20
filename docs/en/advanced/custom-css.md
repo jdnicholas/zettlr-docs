@@ -55,11 +55,28 @@ In case you do not like the default font delivered with Zettlr, or need to chang
 The placeholder will make sure that even if your font cannot be found, an equivalent font will be used. It serves as a fallback. Also, if your font name contains spaces, make sure to surround it with quotation marks, e.g., `"Times New Roman"`.
 
 ```css
-body #editor .CodeMirror {
+body .main-editor-wrapper .cm-editor{
     font-family: '<your-font-name here>', <placeholder>;
 }
 ```
 
+### Visualising Line Endings
+
+In case you want to see where your linefeeds are, you can display the pilcrow symbol (¶) at the end of your lines by using the following Custom CSS:
+
+```css
+.cm-line:not(:last-child)::after {
+  content: "¶";
+  color: #666;
+}
+```
+
+![A preview of Zettlr using above snippet](../img/custom_css_pilcrow.png)
+
+!!! warning
+
+    The examples below haven't been updated in some time, so they may not work out of the box.
+    
 ### Custom Background Images
 
 With the following code, you can make your editor have a different background image everytime you start it. The images are taken from Unsplash.com, a nice site with free photos. It uses the `Source API`, which will simply spit out a different image every time the URL is visited. You can test it out by simply [visiting the page and refreshing a few times](https://source.unsplash.com/random)! Please refer to the [Unsplash Source API reference](https://source.unsplash.com/) for more options (such as using an image of the day).
@@ -93,19 +110,6 @@ body.dark #editor .CodeMirror-sizer, body.dark #editor .CodeMirror-gutter {
 ```
 
 ![A preview of a Zettlr installation using above snippet](../img/custom_css_unsplash.png)
-
-### Visualising Line Endings
-
-In case you want to see where your linefeeds are, you can display the pilcrow symbol (¶) at the end of your lines by using the following Custom CSS:
-
-```css
-.CodeMirror-line:not(:last-child)::after {
-  content: "¶";
-  color: #666;
-}
-```
-
-![A preview of Zettlr using above snippet](../img/custom_css_pilcrow.png)
 
 ### Set a maximum width for the text
 
